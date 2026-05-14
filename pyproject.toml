@@ -1,0 +1,25 @@
+[project]
+name = "my-autograder"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "requests>=2.32",
+]
+
+[project.scripts]
+autograder = "autograder.main:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["autograder"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
